@@ -32,7 +32,7 @@ html:
 ```html
 <script>
     jQuery(document).ready(function($){
-        $('.image-list img').relocate();
+        $('.box img').relocate();
     });
 </script>
 ```
