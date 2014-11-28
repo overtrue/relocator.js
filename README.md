@@ -3,7 +3,8 @@ relocator.js
 
 relocate images to fit image box.
 
-![image](https://cloud.githubusercontent.com/assets/1472352/5231259/ed2763ce-776f-11e4-9310-6f6ce491e7ee.png)
+![relocator](https://cloud.githubusercontent.com/assets/1472352/5231323/191216d6-7771-11e4-8094-f54d3f75ee7a.jpg)
+
 
 
 # Usage
