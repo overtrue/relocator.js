@@ -1,0 +1,31 @@
+{
+  "name": "relocator.js",
+  "version": "1.0.0",
+  "homepage": "https://github.com/overtrue/relocator.js",
+  "authors": [
+    "overtrue <anzhengchao@gmail.com>"
+  ],
+  "description": "relocate images to fit image box",
+  "main": "src/relocator.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/overtrue/relocator.js.git"
+  },
+  "keywords": [
+    "relocate",
+    "reposition",
+    "image",
+    "overtrue"
+  ],
+  "dependencies": {
+    "jquery": ">= 1.7.0",
+  },
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
