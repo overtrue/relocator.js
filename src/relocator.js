@@ -28,7 +28,7 @@
  * documents the function and classes that are added to jQuery by this plug-in.
  * @memberOf $
  */
-(function (factory) {
+;(function (factory) {
     if (typeof define === 'function' && define.amd && define.amd.jQuery) {
         // AMD. Register as anonymous module.
         define(['jquery'], factory);
@@ -37,8 +37,8 @@
         factory(jQuery);
     }
 }(function ($) {
-    $,fn.relocate = function(img_selector, box_selector) {
-        $(img_selector).find('img').each(function() {
+    $.fn.relocate = function(box_selector) {
+        this.each(function() {
             var img     = $(this);
             var box     = box_selector ? img.closest(box_selector) : img.parent();
             var tmp_img = new Image();
@@ -67,5 +67,5 @@
                 }
             });
         });
-    }
-})(jQuery));
+    };
+}));
