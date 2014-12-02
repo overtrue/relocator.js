@@ -25,7 +25,7 @@ html:
 
 ```html
 <script src="assets/js/jquery.min.js"></script>
-<script src="assets/js/relocator-1.0.0.min.js"></script>
+<script src="assets/js/relocator-1.0.1.min.js"></script>
 ```
 ### relocate all images
 
