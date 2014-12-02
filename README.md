@@ -37,5 +37,27 @@ html:
 </script>
 ```
 
+### custom
+$(imageSelector).relocate($imageBoxSelector);
+
+- `imageBoxSelector` Specify picture reference container, default picture parent reference.
+
+example:
+
+```html
+<div class="box">
+    <div class="img-wrapper">
+        <a href=""><img src="" alt=""></a>
+    </div>
+    <p>The image title</p>
+</div>
+...
+<script>
+    jQuery(document).ready(function($){
+        $('.box img').relocate('.img-wrapper');  //Actually：$(img).closet(''.img-wrapper'')
+    });
+</script>
+```
+
 # License
 MIT
