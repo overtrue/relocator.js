@@ -1,6 +1,6 @@
 /**
  * @fileOverview relocator.js
- * @version 1.0.0
+ * @version 1.0.1
  *
  * @author overtrue <anzhengchao@gmail.com>
  * @see    https://github.com/overtrue
@@ -43,7 +43,7 @@
             var box     = box_selector ? img.closest(box_selector) : img.parent();
             var tmp_img = new Image();
 
-            box.css({'position':'relative', 'overflow':'hidden'});
+            box.css({'position':'relative', 'overflow':'hidden', 'max-width':'auto'});
 
             tmp_img.src = img.attr('src');
 
