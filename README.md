@@ -25,7 +25,7 @@ html:
 
 ```html
 <script src="assets/js/jquery.min.js"></script>
-<script src="assets/js/relocator-1.0.1.min.js"></script>
+<script src="assets/js/relocator.min.js"></script>
 ```
 ### relocate all images
 
@@ -38,7 +38,10 @@ html:
 ```
 
 ### custom
+
+```js
 $(imageSelector).relocate($imageBoxSelector);
+```
 
 - `imageBoxSelector` Specify picture reference container, default picture parent reference.
 
@@ -54,7 +57,7 @@ example:
 ...
 <script>
     jQuery(document).ready(function($){
-        $('.box img').relocate('.img-wrapper');  //Actually：$(img).closet(''.img-wrapper'')
+        $('.box img').relocate('.img-wrapper');  // Actually：$(img).closet(''.img-wrapper'')
     });
 </script>
 ```
