@@ -1,6 +1,6 @@
 /**
  * @fileOverview relocator.js
- * @version 1.0.2
+ * @version 1.0.3
  *
  * @author overtrue <anzhengchao@gmail.com>
  * @see    https://github.com/overtrue
@@ -19,41 +19,53 @@
  * See the jQuery Library  (http://jquery.com/) for full details.  This just
  * documents the function and classes that are added to jQuery by this plug-in.
  */
-;(function (factory) {
+; (function(factory) {
     if (typeof define === 'function' && define.amd && define.amd.jQuery) {
-        // AMD. Register as anonymous module.
         define(['jquery'], factory);
     } else {
-        // Browser globals.
         factory(jQuery);
     }
-}(function ($) {
+} (function($) {
     $.fn.relocate = function(boxSelector) {
         this.each(function() {
-            var img     = $(this);
-            var box     = boxSelector ? img.closest(boxSelector) : img.parent();
+            var img = $(this);
+            var box = boxSelector ? img.closest(boxSelector) : img.parent();
             var tmpImg = new Image();
 
-            box.css({'position':'relative', 'overflow':'hidden', 'max-width':'auto'});
+            box.css({
+                'position': 'relative',
+                'overflow': 'hidden',
+                'max-width': 'auto'
+            });
 
             tmpImg.src = img.attr('src');
 
             $(tmpImg).load(function() {
-                var tmp = $(this).get(0);
+                var tmp           = $(this).get(0);
                 var imgRealWidth  = tmp.naturalWidth;
                 var imgRealHeight = tmp.naturalHeight;
+                var boxWidth      = parseInt(box.css('width'));
+                var boxHeight     = parseInt(box.css('height'));
+                var imgRatio      = imgRealWidth / imgRealHeight;
 
-                var boxWidth  = parseInt(box.css('width'));
-                var boxHeight = parseInt(box.css('height'));
+                if (imgRealWidth / imgRealHeight < boxWidth / boxHeight) {
+                    var topDistance = ((boxWidth / imgRealWidth) * imgRealHeight - boxHeight) / 2;
 
-                var imgRatio = imgRealWidth / imgRealHeight;
-
-                if (imgRatio < 1) {
-                   var topDistance = (((boxWidth / imgRealWidth) * imgRealHeight) - boxHeight) / 2;
-                   img.css({'width':boxWidth, 'height':'auto', 'max-height':'none', 'margin-top':-topDistance});
+                    img.css({
+                        'width'     : boxWidth,
+                        'height'    : 'auto',
+                        'max-height': 'none',
+                        'margin-top': -topDistance
+                    });
                 } else {
-                   var leftDistance = (((boxHeight / imgRealHeight) * imgRealWidth) - boxWidth) / 2;
-                   img.css({'width':'auto', 'max-width':'none',  'height':boxHeight, 'margin-left':-leftDistance});
+                    var leftDistance = ((boxHeight / imgRealHeight) * imgRealWidth - boxWidth) / 2;
+
+                    img.css({
+                        'width'      : 'auto',
+                        'max-width'  : 'none',
+                        'height'     : boxHeight,
+                        'margin-left': -leftDistance
+                    });
                 }
             });
         });
